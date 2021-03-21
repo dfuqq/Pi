@@ -1,0 +1,17 @@
+.Main-Home {
+    height: 100vh;
+    width: 100vw;
+    background-color: #080808;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Wrapper-Home {
+    height: 70%;
+    width: 50%;
+}
+.Button {
+    border-radius: 3px;
+    margin-bottom: 20px;
+    border: 1.5px solid #fff;
+}
