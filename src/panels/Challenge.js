@@ -6,15 +6,19 @@ import { Icon24Cancel } from "@vkontakte/icons";
 import "./Challenge.css";
 
 const Challenge = ({ go }) => {
-    const [digit, setDigit] = useState(2);
+    const [digit, setDigit] = useState(1);
 
-    const pi = "3.1415926535";
+    const pi = "3.1415926535897932384626433832";
 
     const [show, setShow] = useState(pi[0] + pi[1]);
 
-    const clicker = () => {
-        setDigit(digit + 1);
-        setShow(show + pi[digit]);
+    const clicker = (e) => {
+        if (e.currentTarget.value === pi[digit + 1]) {
+            setDigit(digit + 1);
+            digit === 1 ? null : setShow(show + pi[digit]);
+        } else {
+            console.log("балдабоб");
+        }
     };
 
     return (
@@ -35,7 +39,12 @@ const Challenge = ({ go }) => {
                 />
                 <div className='Main'>
                     <div className='Digits'>
-                        <div className='Pi'>{show}</div>
+                        <div className='Pi'>
+                            <div className='Off'>{show}</div>
+                            <div className='Active'>
+                                {digit === 1 ? null : pi[digit]}
+                            </div>
+                        </div>
                     </div>
                     <div className='Wrapper'>
                         <div className='Keyboard'>
@@ -43,54 +52,71 @@ const Challenge = ({ go }) => {
                                 mode='overlay_outline'
                                 className='Button Button-Kbrd'
                                 onClick={clicker}
+                                value='7'
                             >
                                 7
                             </Button>
                             <Button
                                 mode='overlay_outline'
                                 className='Button Button-Kbrd'
+                                onClick={clicker}
+                                value='8'
                             >
                                 8
                             </Button>
                             <Button
                                 mode='overlay_outline'
                                 className='Button Button-Kbrd'
+                                onClick={clicker}
+                                value='9'
                             >
                                 9
                             </Button>
                             <Button
                                 mode='overlay_outline'
                                 className='Button Button-Kbrd'
+                                onClick={clicker}
+                                value='4'
                             >
                                 4
                             </Button>
                             <Button
                                 mode='overlay_outline'
                                 className='Button Button-Kbrd'
+                                onClick={clicker}
+                                value='5'
                             >
                                 5
                             </Button>
                             <Button
                                 mode='overlay_outline'
                                 className='Button Button-Kbrd'
+                                onClick={clicker}
+                                value='6'
                             >
                                 6
                             </Button>
                             <Button
                                 mode='overlay_outline'
                                 className='Button Button-Kbrd'
+                                onClick={clicker}
+                                value='1'
                             >
                                 1
                             </Button>
                             <Button
                                 mode='overlay_outline'
                                 className='Button Button-Kbrd'
+                                onClick={clicker}
+                                value='2'
                             >
                                 2
                             </Button>
                             <Button
                                 mode='overlay_outline'
                                 className='Button Button-Kbrd'
+                                onClick={clicker}
+                                value='3'
                             >
                                 3
                             </Button>
@@ -102,6 +128,8 @@ const Challenge = ({ go }) => {
                             <Button
                                 mode='overlay_outline'
                                 className='Button Button-Kbrd'
+                                onClick={clicker}
+                                value='0'
                             >
                                 0
                             </Button>
