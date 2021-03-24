@@ -8,8 +8,9 @@ import {
 
 import "@vkontakte/vkui/dist/vkui.css";
 
-import Gag from "./panels/Gag";
+import Home from "./panels/Home";
 import Challenge from "./panels/Challenge";
+import Training from "./panels/Training";
 
 const App = () => {
     const [activePanel, setActivePanel] = useState("home");
@@ -18,13 +19,18 @@ const App = () => {
         setActivePanel(e.currentTarget.dataset.to);
     };
 
+    const altGo = (panel) => {
+        setActivePanel(panel);
+    };
+
     return (
         <ConfigProvider>
             <AdaptivityProvider>
                 <AppRoot>
                     <View activePanel={activePanel}>
-                        <Gag id='home' go={go} />
-                        <Challenge id='challenge' go={go} />
+                        <Home id='home' go={go} />
+                        <Challenge id='challenge' go={go} altGo={altGo} />
+                        <Training id='training' go={go} />
                     </View>
                 </AppRoot>
             </AdaptivityProvider>
