@@ -3,10 +3,11 @@ import { View, Panel, PanelHeader, Button } from "@vkontakte/vkui";
 
 import { Icon24Cancel } from "@vkontakte/icons";
 
-import "./Challenge.css";
+import "./Training.css";
 
-const Challenge = ({ go }) => {
+const Challenge = ({ go, altGo }) => {
     const [digit, setDigit] = useState(1);
+    const [lifes, setLifes] = useState(2);
 
     const pi = "3.1415926535897932384626433832";
 
@@ -17,7 +18,14 @@ const Challenge = ({ go }) => {
             setDigit(digit + 1);
             digit === 1 ? null : setShow(show + pi[digit]);
         } else {
-            console.log("балдабоб");
+            if (lifes > 0) {
+                setLifes(lifes - 1);
+                console.log(lifes);
+            } else {
+                setTimeout(() => {
+                    altGo("home");
+                }, 2000);
+            }
         }
     };
 
