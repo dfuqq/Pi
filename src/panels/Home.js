@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Panel, Button } from "@vkontakte/vkui";
 
-import "./Gag.css";
+import "./Home.css";
 
-const Gag = ({ go }) => {
+const Home = ({ go }) => {
     return (
         <View>
             <Panel>
@@ -21,6 +21,8 @@ const Gag = ({ go }) => {
                         </Button>
                         <Button
                             mode='overlay_outline'
+                            onClick={go}
+                            data-to='training'
                             size='l'
                             stretched
                             className='Button'
@@ -33,7 +35,7 @@ const Gag = ({ go }) => {
                             stretched
                             className='Button'
                         >
-                            Число
+                            Число π
                         </Button>
                     </div>
                 </div>
@@ -42,4 +44,4 @@ const Gag = ({ go }) => {
     );
 };
 
-export default Gag;
+export default Home;
